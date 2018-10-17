@@ -1,3 +1,4 @@
+import sys
 import string
 import random
 import csv
@@ -6,6 +7,8 @@ from getpass import getpass
 import authenticate
 import menu
 import add
+import delete
+import list
 
 
 def init():

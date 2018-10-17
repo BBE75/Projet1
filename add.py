@@ -1,6 +1,22 @@
 import settings
 
 
+def checkusername(username):
+
+    data = {}
+    with open(settings.CSV_FILE) as file:
+        reader = settings.csv.reader(file, skipinitialspace=True, quotechar="'")
+        for row in reader:
+            data[row[0]] = row[1:]
+
+        if username not in list(data.keys()):
+            present = 0
+        else:
+            present = 1
+        file.close()
+        return present
+
+
 def adduser():
 
     while True:
@@ -27,10 +43,14 @@ def adduser():
         print("| Username: ", username, " | Firstname: ", firstname, " | Lastname: ", lastname, " | email : ", email,)
         yesno = input("Are these information correct ? y/n: ")
         if yesno.lower() == 'y':
+            username_available = checkusername(username)
+            if username_available == 1:
+                print('Username already in use')
+                continue
             break
 
     hashed_password = settings.authenticate.password_hash(password)
-    new_row = '\n'+username+','+firstname+','+lastname+','+email+','+group_id+','+hashed_password
+    new_row = username+','+firstname+','+lastname+','+email+','+group_id+','+hashed_password+'\n'
 
     with open(settings.CSV_FILE, 'a') as file:
         file.write(new_row)

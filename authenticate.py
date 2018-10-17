@@ -14,17 +14,20 @@ def auth():
         reader = settings.csv.reader(file, skipinitialspace=True, quotechar="'")
         for row in reader:
             data[row[0]] = row[1:]
+        file.close()
+
     cpt = 0
     while cpt < 3:
         username = input('Username (EXIT to exit): ')
-        if username not in list(data.keys()):
-            print('user not found')
+
+        if username.lower() == 'exit':
+            return 2
+        elif username not in list(data.keys()):
+            print('User not found')
             cpt += 1
             if cpt == 3:
-                print('too many try, closing now')
-                return 0
-        elif username.lower() == 'exit':
-            return 0
+                print('Too many try, closing now')
+                return 2
         else:
             break
     cpt = 0
