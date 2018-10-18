@@ -2,7 +2,7 @@ import settings
 
 settings.init()
 current_user_info = settings.authenticate.auth()
-print(current_user_info)
+
 if current_user_info[4] == '0':
     print("Successfully logged as admin")
 elif current_user_info[4] == '1':
