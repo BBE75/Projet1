@@ -1,21 +1,43 @@
 import settings
 
 settings.init()
-value = settings.authenticate.auth()
-if value == 2:
-    print("Authentication failure")
-    settings.sys.exit()
-elif value == 1:
-    print("Successfully logged as user")
-else:
+current_user_info = settings.authenticate.auth()
+print(current_user_info)
+if current_user_info[4] == '0':
     print("Successfully logged as admin")
+elif current_user_info[4] == '1':
+    print("Successfully logged as user")
 
-choice = settings.menu.menu(value)
+while True:
 
-if choice == '1':
-    settings.add.adduser()
-elif choice == '2':
-    settings.list.listuser()
-elif choice == '4':
-    username = input('Input username for deletion: ')
-    settings.delete.delete_user(username)
+    choice = settings.menu.menu(current_user_info[4])
+
+    if choice == '0':
+        print('Closing script, goodbye.')
+        settings.sys.exit()
+    elif choice == '1':
+        settings.add.adduser()
+    elif choice == '2':
+        settings.list.listusers()
+    elif choice == '3':
+        username = input('Input username ')
+        if settings.add.checkusername(username):
+            settings.update.update(username)
+        else:
+            print('Username incorrect')
+    elif choice == '4':
+        username = input('Input username ')
+        if settings.add.checkusername(username):
+            settings.delete.delete_user(username)
+        else:
+            print('Username incorrect')
+    elif choice == '5':
+        username = input('Input username to print its information: ')
+        if settings.add.checkusername(username):
+            settings.list.userinfo(username)
+        else:
+            print('Username incorrect')
+    elif choice == '6':
+        settings.list.userinfo(current_user_info[0])
+    # elif choice == '7':
+

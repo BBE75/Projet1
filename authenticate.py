@@ -21,27 +21,26 @@ def auth():
         username = input('Username (EXIT to exit): ')
 
         if username.lower() == 'exit':
-            return 2
+            settings.sys.exit()
         elif username not in list(data.keys()):
-            print('User not found')
+            print('User not found, ',3-cpt, ' try remaining')
             cpt += 1
             if cpt == 3:
                 print('Too many try, closing now')
-                return 2
+                settings.sys.exit()
         else:
             break
     cpt = 0
     while cpt < 3:
         password = settings.getpass('Password : ', stream=None)
         if password_hash(password) != data[username][4]:
-            print('Wrong password')
+            print('Wrong password, ', 3-cpt, ' try remaining')
             cpt += 1
             if cpt == 3:
-                print('too many try, closing now')
-                return 2
+                print('Too many try, closing now')
+                settings.sys.exit()
         else:
-            if data[username][3] == '0':
-                return 0
-            else:
-                return 1
+            info_user = list(data[username])
+            info_user.insert(0, username)
+            return info_user
 

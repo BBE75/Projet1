@@ -9,6 +9,7 @@ import menu
 import add
 import delete
 import list
+import update
 
 
 def init():
