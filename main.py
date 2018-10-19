@@ -13,7 +13,7 @@ while True:
     choice = settings.menu.menu(current_user_info[4])
 
     if choice == '0':
-        print('Closing script, goodbye.')
+        input('Closing script, goodbye.')
         settings.sys.exit()
     elif choice == '1':
         settings.add.adduser()
