@@ -1,7 +1,7 @@
 import settings
 
 
-def update(username, group_id):
+def update(username):
 
     data = {}
     with open(settings.CSV_FILE) as file:
@@ -13,17 +13,17 @@ def update(username, group_id):
     print('Changing Firstname or Lastname will change the username.')
     print('Type new value to change it, enter to keep it')
 
-    user_input = input('Change firstname :', data[username][0], '? ')
+    user_input = input('Change firstname :'+data[username][0]+ '? ')
     if user_input != '':
         firstname = user_input
     else:
         firstname = data[username][0]
-    user_input = input('Change lastname :', data[username][1], '? ')
+    user_input = input('Change lastname :'+data[username][1]+ '? ')
     if user_input != '':
         lastname = user_input
     else:
         lastname = data[username][1]
-    user_input = input('Change email :', data[username][2], '? ')
+    user_input = input('Change email :'+data[username][2]+ '? ')
     if user_input != '':
         email = user_input
     else:
