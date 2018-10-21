@@ -20,13 +20,13 @@ while True:
     elif choice == '2':
         settings.list.listusers()
     elif choice == '3':
-        username = input('Input username ')
+        username = input('Input username: ')
         if settings.add.checkusername(username):
-            settings.update.update(username)
+            settings.update.update(username, current_user_info[4])
         else:
             print('Username incorrect')
     elif choice == '4':
-        username = input('Input username ')
+        username = input('Input username: ')
         if settings.add.checkusername(username):
             settings.delete.delete_user(username)
         else:
@@ -39,5 +39,6 @@ while True:
             print('Username incorrect')
     elif choice == '6':
         settings.list.userinfo(current_user_info[0])
-    # elif choice == '7':
+    elif choice == '7':
+        settings.update.update(current_user_info[0], current_user_info[4])
 

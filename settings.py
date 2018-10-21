@@ -10,9 +10,11 @@ import add
 import delete
 import list
 import update
+import string
+import random
 
 
 def init():
 
     global CSV_FILE
-    CSV_FILE = 'C:/Users/Benjamin/PycharmProjects/Projet1/ressources/user.csv'
+    CSV_FILE = './ressources/user.csv'

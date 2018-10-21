@@ -23,7 +23,7 @@ def auth():
         if username.lower() == 'exit':
             settings.sys.exit()
         elif username not in list(data.keys()):
-            print('User not found, ',3-cpt, ' try remaining')
+            print('User not found, ', 2-cpt, ' try remaining')
             cpt += 1
             if cpt == 3:
                 print('Too many try, closing now')
@@ -34,7 +34,7 @@ def auth():
     while cpt < 3:
         password = settings.getpass('Password : ', stream=None)
         if password_hash(password) != data[username][4]:
-            print('Wrong password, ', 3-cpt, ' try remaining')
+            print('Wrong password, ', 2-cpt, ' try remaining')
             cpt += 1
             if cpt == 3:
                 print('Too many try, closing now')
