@@ -1,0 +1,5 @@
+# Auteurs: Benjamin BEYERLE - Philippe DA SILVA OLIVEIRA
+# Classe: SRC1 - 3E
+
+Pour utiliser le script, simplement éxecuter le fichier main.py, il faut l'éxecuter dans un terminal car nous utilisons la fonction getpass()
+celle-ci ne fonctionne que dans les terminaux.

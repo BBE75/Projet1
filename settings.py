@@ -1,3 +1,8 @@
+# Auteurs: Benjamin BEYERLE - Philippe DA SILVA OLIVEIRA
+# Classe: SRC1 - 3E
+
+# Ce fichier recense toutes les lib necessaire et déclare les variables globales, on as juste à importe settings
+# dans les autres fichier pour utiliser les fonctions voulues
 import sys
 import string
 import random
